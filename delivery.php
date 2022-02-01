@@ -1,3 +1,46 @@
+<?php
+$con = mysqli_connect("localhost", "root", "");
+
+mysqli_select_db($con, "payment");
+
+// if($con) {
+//     echo "Connection successful";
+// }else{
+//     // echo "No connection";
+//     die("No connection". mysqli_connect_error());
+// }
+
+// if(isset($_POST['detail'])) {
+@$name = $_POST['name'];
+@$phone = $_POST['phone'];
+@$address = $_POST['address'];
+@$pincode = $_POST['pincode'];
+@$card = $_POST['card'];
+@$number = $_POST['number'];
+@$date = $_POST['date'];
+@$cvv = $_POST['cvv'];
+
+$insertquery = " insert into detail(name,phone,address,pincode,card,number,date,cvv)
+values ('$name','$phone','$address','$pincode','$card','$number','$date','$cvv')";
+
+mysqli_query($con,$insertquery);
+
+// if($query){
+//     ?>
+
+<!--     <script>
+//         alert("Connection successfull")
+//     </script>
+//     <?php
+// }else{
+//     ?>
+//     <script>
+//         alert("No connection successfull")
+//     </script>
+//     <?php
+// }
+?>
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,48 +88,3 @@
 </div>
 </body>
 </html>
-
-
-<?php
-$con = mysqli_connect("localhost", "root", "");
-
-mysqli_select_db($con, "payment");
-
-// if($con) {
-//     echo "Connection successful";
-// }else{
-//     // echo "No connection";
-//     die("No connection". mysqli_connect_error());
-// }
-
-// if(isset($_POST['detail'])) {
-@$name = $_POST['name'];
-@$phone = $_POST['phone'];
-@$address = $_POST['address'];
-@$pincode = $_POST['pincode'];
-@$card = $_POST['card'];
-@$number = $_POST['number'];
-@$date = $_POST['date'];
-@$cvv = $_POST['cvv'];
-
-$insertquery = " insert into detail(name,phone,address,pincode,card,number,date,cvv)
-values ('$name','$phone','$address','$pincode','$card','$number','$date','$cvv')";
-
-mysqli_query($con,$insertquery);
-
-// if($query){
-//     ?>
-
-<!--     <script>
-//         alert("Connection successfull")
-//     </script>
-//     <?php
-// }else{
-//     ?>
-//     <script>
-//         alert("No connection successfull")
-//     </script>
-//     <?php
-// }
-?>
-
